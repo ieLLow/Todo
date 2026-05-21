@@ -9,17 +9,21 @@ class TodoController extends Controller
 {
     public function index()
     {
-        return Todo::query()->get();
+        return view('todos.index');
     }
 
     public function create()
     {
-        $todo = new Todo();
-        $todo->name = "faire les courses";
-        $todo->completed_at = null;
+        return view('todos.create');
+    }
 
-        $todo->save();
+    public function show($id)
+    {
+        return view('todos.show');
+    }
 
-        return $todo;
+    public function edit($id)
+    {
+        return view('todos.edit');
     }
 }
